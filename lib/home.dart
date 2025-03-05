@@ -11,12 +11,32 @@ class Home extends StatelessWidget {
           title: Text("Coffee Card"),
           backgroundColor: Colors.brown[700],
         ),
-        body: Container(
-          color: Colors.orange,
-          width: 200,
-          height: 200,
-          margin: EdgeInsets.fromLTRB(10, 30, 0, 0),
-          child: Text("Coffee Card"),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(bottom: 10.0),
+              color: Colors.brown[200],
+              padding: const EdgeInsets.all(20),
+              child: const Text("How I like my coffee..."),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(bottom: 10.0),
+              color: Colors.brown[200],
+              padding: const EdgeInsets.all(20),
+              child: const Text("How I like my coffee..."),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(bottom: 10.0),
+              color: Colors.brown[200],
+              padding: const EdgeInsets.all(20),
+              child: const Text("How I like my coffee..."),
+            ),
+          ],
         ),
       ),
     );
