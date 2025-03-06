@@ -1,5 +1,6 @@
-import "package:flutter/material.dart";
+// ignore: file_names
 import "package:coffee_card/coffee_preps.dart";
+import "package:flutter/material.dart";
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -19,16 +20,14 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: 10.0),
-              color: Colors.brown[200],
-              padding: const EdgeInsets.all(20),
+              color: Colors.brown[400],
+              padding: const EdgeInsets.all(10),
               child: const Text("How I like my coffee..."),
             ),
             Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.only(bottom: 10.0),
               color: Colors.brown[200],
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               child: CoffeePreps(),
             ),
           ],
