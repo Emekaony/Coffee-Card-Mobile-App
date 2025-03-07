@@ -17,6 +17,8 @@ class CoffeePreps extends StatelessWidget {
               color: Colors.brown[200],
               colorBlendMode: BlendMode.multiply,
             ),
+            Expanded(child: SizedBox()),
+            Text("+"),
           ],
         ),
         Row(
@@ -24,6 +26,9 @@ class CoffeePreps extends StatelessWidget {
             Text("Sugars: "),
             Text("3"),
             Image.asset("assets/images/sugar_cube.png", width: 25),
+            // expanded allows u to take up all the available space
+            Expanded(child: SizedBox()),
+            Text("+"),
           ],
         ),
       ],
