@@ -48,8 +48,11 @@ class CoffeePreps extends StatelessWidget {
             Image.asset("assets/images/sugar_cube.png", width: 25),
             // expanded allows u to take up all the available space
             Expanded(child: SizedBox()),
-            TextButton(
-              style: TextButton.styleFrom(overlayColor: Colors.brown),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: Colors.brown,
+                foregroundColor: Colors.white,
+              ),
               onPressed: increase_sugars,
               child: Icon(Icons.remove),
             ),
