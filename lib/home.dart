@@ -26,7 +26,11 @@ class Home extends StatelessWidget {
                 child: const Text("How I like my coffee..."),
               ),
               Container(
-                color: Colors.brown[200],
+                decoration: BoxDecoration(
+                  color: Colors.brown[200],
+                  // this is how u add border
+                  // border: Border.all(color: Colors.black, width: 2.0),
+                ),
                 padding: const EdgeInsets.all(10),
                 child: CoffeePreps(),
               ),

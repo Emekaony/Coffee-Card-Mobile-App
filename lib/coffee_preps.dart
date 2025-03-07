@@ -1,7 +1,20 @@
+import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 
 class CoffeePreps extends StatelessWidget {
   const CoffeePreps({super.key});
+
+  void increase_strength() {
+    if (kDebugMode) {
+      print("increase strength by 1");
+    }
+  }
+
+  void increase_sugars() {
+    if (kDebugMode) {
+      print("increase sugars by 1");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +31,14 @@ class CoffeePreps extends StatelessWidget {
               colorBlendMode: BlendMode.multiply,
             ),
             Expanded(child: SizedBox()),
-            Text("+"),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: Colors.brown,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: increase_strength,
+              child: Icon(Icons.add),
+            ),
           ],
         ),
         Row(
@@ -28,7 +48,11 @@ class CoffeePreps extends StatelessWidget {
             Image.asset("assets/images/sugar_cube.png", width: 25),
             // expanded allows u to take up all the available space
             Expanded(child: SizedBox()),
-            Text("+"),
+            TextButton(
+              style: TextButton.styleFrom(overlayColor: Colors.brown),
+              onPressed: increase_sugars,
+              child: Icon(Icons.remove),
+            ),
           ],
         ),
       ],
