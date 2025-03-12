@@ -1,18 +1,34 @@
+import "package:coffee_card/widgets/styled_body_text.dart";
+import "package:coffee_card/widgets/styled_button.dart";
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 
-class CoffeePreps extends StatelessWidget {
+class CoffeePreps extends StatefulWidget {
   const CoffeePreps({super.key});
+
+  //  I don't really understand this line, but I will make it make sense eventually
+  @override
+  State<CoffeePreps> createState() => _CoffeePrepsState();
+}
+
+class _CoffeePrepsState extends State<CoffeePreps> {
+  int strength = 1;
+  int sugars = 1;
 
   void increase_strength() {
     if (kDebugMode) {
+      setState(() {
+        strength = strength < 5 ? ++strength : 1;
+      });
       print("increase strength by 1");
     }
   }
 
   void increase_sugars() {
     if (kDebugMode) {
-      print("increase sugars by 1");
+      setState(() {
+        sugars = sugars < 5 ? ++sugars : 0;
+      });
     }
   }
 
@@ -22,39 +38,46 @@ class CoffeePreps extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text("Strength: "),
-            Text("3"),
-            Image.asset(
-              "assets/images/coffee_bean.png",
-              width: 25,
-              color: Colors.brown[200],
-              colorBlendMode: BlendMode.multiply,
-            ),
-            Expanded(child: SizedBox()),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.brown,
-                foregroundColor: Colors.white,
+            StyledBodyText("Strength: "),
+            SizedBox(width: 5),
+            for (int i = 0; i < strength; i++)
+              Image.asset(
+                "assets/images/coffee_bean.png",
+                width: 25,
+                color: Colors.brown[200],
+                colorBlendMode: BlendMode.multiply,
               ),
-              onPressed: increase_strength,
-              child: Icon(Icons.add),
+            Expanded(child: SizedBox()),
+            StyledButton(
+              Colors.brown,
+              Colors.white,
+              onPress: increase_strength,
+              child: Text("+"),
             ),
           ],
         ),
         Row(
           children: [
-            Text("Sugars: "),
-            Text("3"),
-            Image.asset("assets/images/sugar_cube.png", width: 25),
+            StyledBodyText("Sugars: "),
+
+            if (sugars == 0) StyledBodyText("No added sugar..."),
+
+            SizedBox(width: 15),
+            // no curly braces for loops in flutter
+            for (int i = 0; i < sugars; i++)
+              Image.asset(
+                "assets/images/sugar_cube.png",
+                width: 25,
+                color: Colors.brown[200],
+                colorBlendMode: BlendMode.multiply,
+              ),
             // expanded allows u to take up all the available space
             Expanded(child: SizedBox()),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.brown,
-                foregroundColor: Colors.white,
-              ),
-              onPressed: increase_sugars,
-              child: Icon(Icons.remove),
+            StyledButton(
+              Colors.brown,
+              Colors.white,
+              onPress: increase_sugars,
+              child: Text("+"),
             ),
           ],
         ),
