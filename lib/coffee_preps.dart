@@ -15,7 +15,7 @@ class _CoffeePrepsState extends State<CoffeePreps> {
   int strength = 1;
   int sugars = 1;
 
-  void increase_strength() {
+  void increaseStrength() {
     if (kDebugMode) {
       setState(() {
         strength = strength < 5 ? ++strength : 1;
@@ -24,7 +24,7 @@ class _CoffeePrepsState extends State<CoffeePreps> {
     }
   }
 
-  void increase_sugars() {
+  void increaseSugars() {
     if (kDebugMode) {
       setState(() {
         sugars = sugars < 5 ? ++sugars : 0;
@@ -51,7 +51,7 @@ class _CoffeePrepsState extends State<CoffeePreps> {
             StyledButton(
               Colors.brown,
               Colors.white,
-              onPress: increase_strength,
+              onPress: increaseStrength,
               child: Text("+"),
             ),
           ],
@@ -76,7 +76,7 @@ class _CoffeePrepsState extends State<CoffeePreps> {
             StyledButton(
               Colors.brown,
               Colors.white,
-              onPress: increase_sugars,
+              onPress: increaseSugars,
               child: Text("+"),
             ),
           ],
